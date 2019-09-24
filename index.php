@@ -16,7 +16,7 @@ echo <<<_end
 _end;
 $query = "SELECT * FROM products LIMIT 10";
 $result = $conn->query($query);
-while($row = $result->fetch_assoc()) {
+while($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo '
     <div class="col s12 m6 l6">
       <div class="card hoverable">
@@ -28,10 +28,9 @@ while($row = $result->fetch_assoc()) {
           <a class="btn-floating halfway-fab waves-effect waves-light btn-large grey hoverable likeIcon">
             <i class="material-icons">favorite</i>
           </a>
-          <input type="hidden" value="'. $row["product_id"] .'" />
-          ';
+          <input type="hidden" value="'. $row["product_id"] .'" />';
           }
-        echo'
+          echo'
         </div>
         <div class="card-content">
           <p class="truncate">'. $row["about"] .'</p>

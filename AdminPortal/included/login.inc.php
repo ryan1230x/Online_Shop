@@ -3,7 +3,7 @@
 if(isset($_POST['login_btn'])) {
 
     //include database connection
-    require_once '../config/dbh.php';
+    require_once '../PDOconfig/dbh.php';
 
     ####################################
     //define variable
@@ -26,18 +26,9 @@ if(isset($_POST['login_btn'])) {
         ############################################################################
 
         $query = "SELECT * FROM users WHERE username=? OR email=?;";
-        $stmt = $conn->stmt_init();
-
-        if(!$stmt->prepare($query)) {
-            header("Location: ../signin.php?error=error");
-            exit();
-
-        }
-        $stmt->bind_param("ss", $mailuid, $mailuid);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $stmt = $conn->prepare($query);$stmt->execute([$mailuid, $mailuid]);
         
-        if($row = $result->fetch_assoc()) {
+        if($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $pwdCheck = password_verify($password, $row["password"]);
             $userCheck = $row["username"];
 

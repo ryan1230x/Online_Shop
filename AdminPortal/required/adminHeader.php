@@ -4,7 +4,7 @@ if(!isset($_SESSION["username"]))
 {
   header("Location: signin.php");
 }
-require_once 'config/dbh.php';
+require_once 'PDOconfig/dbh.php';
 echo <<<_end
 <!DOCTYPE html>
   <html>

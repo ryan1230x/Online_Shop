@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config/dbh.php';
+require_once 'PDOconfig/dbh.php';
 echo '
 <!DOCTYPE html>
 <html lang="en">

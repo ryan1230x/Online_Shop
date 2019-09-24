@@ -116,7 +116,7 @@ blockquote {
     <div class="row" id="box" style="margin-top:5em;">
         <div class="container">
 
-            <form action="included/signup.inc.php" method="post" class="col s12 center-align">
+            <form action="PDOincluded/signup.php" method="post" class="col s12 center-align">
             <h4>Register</h4>
             <div class="input-field col s12">
                 <input type="text" name="username" id="username">

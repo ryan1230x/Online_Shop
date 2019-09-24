@@ -27,9 +27,9 @@ echo <<<_end
       <tbody>
 _end;
 $query = "SELECT * FROM products ORDER BY id DESC LIMIT 10";
-$result = mysqli_query($conn, $query);
-if(mysqli_num_rows($result) > 0) {
-  while($row = mysqli_fetch_assoc($result)) {
+$stmt = $conn->prepare($query); $stmt->execute([]);
+if($stmt->rowCount() > 0) {
+  while($row = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
     echo '
     <tr>
       <td>

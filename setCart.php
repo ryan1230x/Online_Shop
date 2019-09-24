@@ -4,7 +4,7 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST") {
   
   // Connection to database
-  require_once "config/dbh.php";
+  require_once "PDOconfig/dbh.php";
 
   // Declare variable
   $size = $_POST["size"];
@@ -15,17 +15,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
   $user = $_SESSION["username"];
 
   $query = "INSERT INTO shoppingCart(product_id, username, size, color) VALUES (?,?,?,?)";
-  $stmt = $conn->stmt_init();
+  $stmt = $conn->prepare($query);
+  $stmt->execute([$itemId, $user, $size, $color]);
   
-  if (!$stmt->prepare($query)) {
-    header("Location: index.php");
-    exit();
-  }
-
-  $stmt->bind_param("isss", $itemId, $user, $size, $color);
-  $stmt->execute();
-  $stmt->close();
-  $conn->close();
 
 } else {
   header("Location: index.php");

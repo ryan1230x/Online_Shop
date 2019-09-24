@@ -3,7 +3,7 @@
 if(isset($_POST["submit-btn"]))
 {
   // Connection to database
-  require_once 'config/dbh.php';
+  require_once 'PDOconfig/dbh.php';
 
   // Define the file variables
   $fileName = $_FILES["file"]["name"];
@@ -59,16 +59,7 @@ if(isset($_POST["submit-btn"]))
     ###############################################################################
     foreach ($colors as $value) {
       $query = "INSERT INTO product_color(product_id, product_color) VALUES(?, ?)";
-      $stmt = $conn->stmt_init();
-      
-      if(!$stmt->prepare($query)) {
-        header("Location: create-form.php?error=set&status=404&item=color");
-        exit();
-
-      } else {
-        $stmt->bind_param("ss", $title, $value);
-        $stmt->execute();
-      }
+      $stmt = $conn->prepare($query);$stmt->execute([$title, $value]);
 
     }
     ################################################################################
@@ -76,16 +67,7 @@ if(isset($_POST["submit-btn"]))
     ################################################################################
     foreach($size as $value) {
       $query = "INSERT INTO product_size(product_id, product_size) VALUES(?, ?)";
-      $stmt = $conn->stmt_init();
-
-      if(!$stmt->prepare($query)) {
-        header("Location: create-form.php?error=set&status=404");
-        exit();
-
-      } else {
-        $stmt->bind_param("ss", $title, $value);
-        $stmt->execute();
-      }
+      $stmt = $conn->prepare($query);$stmt->execute([$title, $value]);
     }
     ####################################################################################
     /* foreach loop for the imgs */
@@ -105,26 +87,13 @@ if(isset($_POST["submit-btn"]))
 
     ###################################################################################
     // Make query for the database
-    $query = "INSERT INTO products(title, about, gender, category, img, price) VALUES(?, ?, ?, ?, ?, ?)";
+    $query = "INSERT INTO products(title, about, gender, category, img, price) 
+    VALUES(?, ?, ?, ?, ?, ?)";
 
     // Prepared the statement
-    $stmt = $conn->stmt_init();
+    $stmt = $conn->prepare($query);
+    $stmt->execute([$title, $desc, $sex, $category, $fileNameNew, $price]);
 
-    // Error handlers
-    if(!$stmt->prepare($query)){
-      echo "Error! Please try again!";
-
-    } else {
-      // Bind the Paramters to the statement
-      $stmt->bind_param("sssssd", $title, $desc, $sex, $category, $fileNameNew, $price);
-
-      // Execute the prepared statement
-      $stmt->execute();
-
-      // Header message to show success
-      header("Location: create-form.php?success=uploaded");
-      exit();
-    }
   }
 }
 
