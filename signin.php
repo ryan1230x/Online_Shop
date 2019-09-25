@@ -1,25 +1,25 @@
 <?php
-require_once 'config/dbh.php';
+require_once 'PDOconfig/dbh.php';
 echo <<<_end
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Material icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <!-- Playfair Display -->
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
-      <!-- Address Bar Color -->
-      <meta name="theme-color" content="#f5f5f5"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Material icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- Playfair Display -->
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+  <!-- Address Bar Color -->
+  <meta name="theme-color" content="#f5f5f5"/>
 <style media="screen">
 html, body {
   background-color: #f0f0f0;
-  font-family: 'Crimson Text', serif;
+  font-family: \'Crimson Text\', serif;
 }
 nav a {
   color: #000;
@@ -47,33 +47,24 @@ blockquote {
   margin-bottom: 40px;
 }
 </style>
-    <title>Document</title>
+  <title>Document</title>
 </head>
-
 <body>
-
 <nav>
-    <div class="nav-wrapper white">
-      <a href="index.php" class="brand-logo black-text center">WJGarments</a>
-      <a href="#" data-activates="mobile-menu" class="button-collapse">
-        <i class="material-icons">menu</i>
-      </a>
-      <ul class="side-nav" id="mobile-menu">
-        <li style="margin:7.5px;"><a href="index.php"><span class="left-text" style="font-size:1.75em;">WJGarments</span></a></li>
-        <li class="divider"></li>
-        <li>
-          <a href="index.php">Home
-          </a>
-        </li>
-        <li>
-          <a href="mobile.html">Deals
-          </a>
-        </li>
-        <li class="no-padding">
-          <ul class="collapsible collapsible-accordian">
-            <li>
-              <a class="collapsible-header" style="padding:0 32px;">Men
-              </a>
+  <div class="nav-wrapper white">
+    <a href="index.php" class="brand-logo black-text center">WJGarments</a>
+    <a href="#" data-activates="mobile-menu" class="button-collapse">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul class="side-nav" id="mobile-menu">
+      <li style="margin:7.5px;"><a href="index.php"><span class="left-text" style="font-size:1.75em;">WJGarments</span></a></li>
+      <li class="divider"></li>
+      <li><a href="index.php">Home</a></li>
+      <li><a href="mobile.html">Deals</a></li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordian">
+          <li>
+            <a class="collapsible-header" style="padding:0 32px;">Men</a>
               <div class="collapsible-body">
                 <ul>
                   <li class="divider"></li>
@@ -89,8 +80,7 @@ blockquote {
         <li class="no-padding">
           <ul class="collapsible collapsible-accordian">
             <li>
-              <a class="collapsible-header" style="padding:0 32px;">Woman
-              </a>
+              <a class="collapsible-header" style="padding:0 32px;">Woman</a>
               <div class="collapsible-body">
                 <ul>
                   <li class="divider"></li>
@@ -105,32 +95,29 @@ blockquote {
         </li>
         <li class="divider"></li>
         <li>
-          <a href="signin.php">Register / Sign In
-          </a>
+          <a href="signin.php">Register / Sign In</a>
         </li>
       </ul>
     </div>
   </nav>
 <body>
   <main>
-
     <div class="row" id="box" style="margin-top:5em;">
-      <div class="container">
-        
-          <form action="PDOincluded/login.php" class="center-align col s12" method="post">
-            <h4>Login In</h4>
-            <div class="input-field col s12">
-              <input type="text" name="username" id="uname">
-              <label for="uname">Username / Email</label>
-            </div>
-            <div class="input-field col s12">
-              <input type="password" name="password" id="pwd">
-              <label for="pwd">Password</label>
-            </div>
-            <p style="padding: 0 .75em;">New User? <a href="signup.php">Sign up</a></p>
-            <p style="padding: 0 .75em;">Forgotten Password? <a href="#">Click here</a></p>
-            <button class="btn waves-effect black" type="submit" name="login_btn">login</button>          
-          </form>
+      <div class="container">        
+        <form action="PDOincluded/login.php" class="center-align col s12" method="post">
+          <h4>Login In</h4>
+          <div class="input-field col s12">
+            <input type="text" name="username" id="uname">
+            <label for="uname">Username / Email</label>
+          </div>
+          <div class="input-field col s12">
+            <input type="password" name="password" id="pwd">
+            <label for="pwd">Password</label>
+          </div>
+          <p style="padding: 0 .75em;">New User? <a href="signup.php">Sign up</a></p>
+          <p style="padding: 0 .75em;">Forgotten Password? <a href="#">Click here</a></p>
+          <button class="btn waves-effect black" type="submit" name="login_btn">login</button>          
+        </form>
       </div>
     </div>
   </main>
