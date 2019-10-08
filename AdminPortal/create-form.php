@@ -1,102 +1,4 @@
 <?php
-/* Make sure the user has clicked on the submit button */
-if(isset($_POST["submit-btn"]))
-{
-  // Connection to database
-  require_once 'PDOconfig/dbh.php';
-
-  // Define the file variables
-  $fileName = $_FILES["file"]["name"];
-  $fileTmpName = $_FILES["file"]["tmp_name"];
-  $fileSize = $_FILES["file"]["size"];
-  $fileType = $_FILES["file"]["type"];
-  $fileError = $_FILES["file"]["error"];
-
-  // Array of allowed extensions in an associative array
-  $allowed = array('jpg' => 'image/jpg','jpeg' => 'image/jpeg','png' => 'image/png');
-
-  // Check to see if the extension is valid in the array
-  if(in_array($fileType, $allowed)){
-    //Check if the file has no errors
-    if($fileError === 0) {
-      // Check to see that the file is not too large
-      if($fileSize < 1000000) {
-        // Chane the file name
-        $fileNameNew = md5($fileName);
-        // File Destination
-        $fileDestination = '../uploaded/'.$fileNameNew;
-        move_uploaded_file($fileTmpName, $fileDestination);
-
-      } else {echo"File to large";}
-    } else {echo "Error in Image";}
-  } else {echo "File extension invalid";}
-
-  /* Define other input variables */
-
-  $title = $_POST["title"];
-  $price = $_POST["price"];
-  $desc = $_POST["description"];
-  $category = $_POST["category"];
-  $sex = $_POST["gender"];
-  $size = $_POST["size"];
-  $colors = $_POST["color"];
-  // $imgArr = array(md5($_FILES["file"]["name"]));
-
-  // Check to see if the user has left an empty field
-  if(empty($title) || empty($desc) || empty($sex) || empty($category) || empty($price)) {
-    header("Location create-form.php?error=emptyfields");
-    exit();
-  }
-  // Check to see if the user input matchs the pattern
-  else if(!preg_match("/^[a-zA-Z0-9]/", $title) && !preg_match("/^[a-zA-Z0-9]/", $desc) && !preg_match("/^[0-9]/", $price)) {
-    header("Location: create-form.php?error=invalidtext");
-    exit();
-  }
-  // If all successfully add this information to the database
-  else {
-    ###############################################################################
-    /* foreach loop for the colors Array */
-    ###############################################################################
-    foreach ($colors as $value) {
-      $query = "INSERT INTO product_color(product_id, product_color) VALUES(?, ?)";
-      $stmt = $conn->prepare($query);$stmt->execute([$title, $value]);
-
-    }
-    ################################################################################
-    /* foreach loop for the size Array  */
-    ################################################################################
-    foreach($size as $value) {
-      $query = "INSERT INTO product_size(product_id, product_size) VALUES(?, ?)";
-      $stmt = $conn->prepare($query);$stmt->execute([$title, $value]);
-    }
-    ####################################################################################
-    /* foreach loop for the imgs */
-    ####################################################################################
-    // foreach ($imgArr as $value) {
-    //   $query = "INSERT INTO product_img(product_id, img) VALUES (?, ?)";
-    //   $stmt = $conn->stmt_init();
-
-    //   if(!$stmt->prepare($query)) {
-    //     header("Location: create-form.php?error=set&status=404img");
-    //     exit();
-    //   }
-    //   $stmt->bind_param("ss", $title, $value);
-    //   $smt->execute();
-
-    // }
-
-    ###################################################################################
-    // Make query for the database
-    $query = "INSERT INTO products(title, about, gender, category, img, price) 
-    VALUES(?, ?, ?, ?, ?, ?)";
-
-    // Prepared the statement
-    $stmt = $conn->prepare($query);
-    $stmt->execute([$title, $desc, $sex, $category, $fileNameNew, $price]);
-
-  }
-}
-
 require_once 'required/adminHeader.php';
 echo <<<_end
 <main>
@@ -115,7 +17,7 @@ _end;
 echo '
   <div class="row">
     <h4 class="left-align teal-text">Add Product</h4>
-    <form action="create-form.php" class="col s12" method="POST" enctype="multipart/form-data">
+    <form action="included/createForm.php" class="col s12" method="POST" enctype="multipart/form-data">
     <!-- Card Title -->
     <div class="input-field col s9">
       <input type="text" id="card_title" name="title" validate required>
@@ -145,73 +47,72 @@ echo '
     </div>
     <!-- Sizes Available -->
     <div class="input-field col s6">
-    <span class="teal-text">Select Available Colors</span>
+      <span class="teal-text">Select Available Colors</span>
+      <p>
+        <label>
+          <input type="checkbox" name="color[]" value="Red" />
+          <span>Red</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" name="color[]" value="Green" />
+          <span>Green</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" name="color[]" value="Blue" />
+          <span>Blue</span>
+        </label>
+      </p>
     <p>
-    <label>
-    <input type="checkbox" name="color[]" value="Red" />
-    <span>Red</span>
-    </label>
+      <label>
+        <input type="checkbox" name="color[]" value="Black" />
+        <span>Black</span>
+      </label>
     </p>
     <p>
-    <label>
-    <input type="checkbox" name="color[]" value="Green" />
-    <span>Green</span>
-    </label>
-    </p>
-    <p>
-    <label>
-    <input type="checkbox" name="color[]" value="Blue" />
-    <span>Blue</span>
-    </label>
-    </p>
-    <p>
-    <label>
-    <input type="checkbox" name="color[]" value="Black" />
-    <span>Black</span>
-    </label>
-    </p>
-    <p>
-    <label>
-    <input type="checkbox" name="color[]" value="White" />
-    <span>White</span>
-    </label>
-    </p>
+      <label>
+        <input type="checkbox" name="color[]" value="White" />
+        <span>White</span>
+      </label>
+      </p>
     </div>
 
     <div class="input-field col s6">
-    <span class="teal-text">Select Available Size</span>
-    <p>
-    <label>
-    <input type="checkbox" name="size[]" value="XL" />
-    <span>XL</span>
-    </label>
-    </p>
-    <p>
-    <label>
-    <input type="checkbox" name="size[]" value="L" />
-    <span>L</span>
-    </label>
-    </p>
-    <p>
-    <label>
-    <input type="checkbox" name="size[]" value="M" />
-    <span>M</span>
-    </label>
-    </p>
-    <p>
-    <label>
-    <input type="checkbox" name="size[]" value="S" />
-    <span>S</span>
-    </label>
-    </p>
-    <p>
-    <label>
-    <input type="checkbox" name="size[]" value="XS" />
-    <span>XS</span>
-    </label>
-    </p>
-    </div>';
-echo '
+      <span class="teal-text">Select Available Size</span>
+      <p>
+        <label>
+          <input type="checkbox" name="size[]" value="XL" />
+          <span>XL</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" name="size[]" value="L" />
+          <span>L</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" name="size[]" value="M" />
+          <span>M</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" name="size[]" value="S" />
+          <span>S</span>
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" name="size[]" value="XS" />
+          <span>XS</span>
+        </label>
+      </p>
+    </div>
     <!-- File Upload -->
     <div class="file-field input-field col s12">
       <div class="btn">
@@ -245,6 +146,6 @@ echo '
 require_once 'required/FAB.php';
 require_once 'required/adminModal.php';
 echo '
-      </div>
-    </main>';
+  </div>
+</main>';
 require_once 'required/adminFooter.php';

@@ -18,7 +18,7 @@ if(isset($_POST["login_btn"])) {
     $stmt = $conn->prepare($query);
     $stmt->execute([$mailuid, $mailuid]);
 
-    if($row = $stmt->fetchAll(PDO::FETCH_ASSOC)) {
+    if($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $pwdCheck = password_verify($password, $row["password"]);
         $userCheck = $row["username"];
 

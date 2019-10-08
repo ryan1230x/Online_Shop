@@ -3,7 +3,7 @@
 if(isset($_POST['login_btn'])) {
 
     //include database connection
-    require_once '../PDOconfig/dbh.php';
+    require_once '../config/dbh.php';
 
     ####################################
     //define variable

@@ -1,0 +1,108 @@
+:root {
+    --primary-color: #78909c;
+    --primary-color-light: #a7c0cd;
+    --primary-color-dark: #4b636e;
+    --secondary-color: rgb(255, 179, 0);
+    --secondary-color-light: #ffe54c;
+    --secondary-color-dark: #c68400;
+}
+html, body {
+    font-family: 'Crimson Text', serif;    
+    background: #f5f5f5;
+}
+header, main, footer, .page-footer {
+    padding-left: 300px;
+}
+.nav-wrapper {
+    background-color: var(--primary-color) !important;
+}
+.sleeve {
+    position: relative;
+    bottom: -20%;
+    height: 100%;
+    background: rgba(255, 179, 0, 0.7);
+    transform: rotate(35deg);
+}
+.side-nav {
+    overflow-y: hidden;    
+}
+.side-nav li > a {
+    font-size: 1rem;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+.m-top {
+    margin-top: 2rem;
+}
+.padding {
+    padding: 20px;
+}
+.ml-auto {
+    margin-left:auto;
+}
+.d-flex{
+    display: flex;
+}
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: #000;
+}
+.secondary-btn:hover,
+.secondary-btn:focus {
+    background-color: var(--secondary-color-light)
+}
+blockquote {
+    border-left-color: var(--secondary-color)
+}
+.brand-logo {
+    width: 300px;
+}
+
+/* Grid Css */
+#firstSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    grid-area: firstSection;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;    
+}
+
+#secondSection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    grid-area: secondSection;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width : 992px) {
+    header, main, footer {
+        padding-left: 0;
+    } 
+    #firstSection {
+        grid-template-columns: 1fr !important;
+        grid-gap: 0px !important;
+    } 
+    #secondSection {
+        grid-template-columns: 1fr !important;
+        grid-gap: 0px !important;        
+    }    
+}

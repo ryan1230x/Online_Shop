@@ -1,8 +1,0 @@
-@media only screen and (max-width: 375px) {
-    .slider {
-        height: 50vh;
-    }
-    ul.slides {
-        height: 50vh;
-    }
-}
