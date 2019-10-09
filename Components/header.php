@@ -20,7 +20,7 @@
       <i class="material-icons">menu</i>
     </a>   
     <div class="d-flex justify-end ml-auto" id="nav-icons">
-      <a href="#" class="btn-flat btn-floating">
+      <a href="#loginModal" class="modal-trigger btn-flat btn-floating">
         <i class="material-icons" style="display:flex;justify-content:center;position:relative;top:-12px;">person</i>
       </a>      
     </div>   

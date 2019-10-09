@@ -22,12 +22,12 @@ echo <<<_end
           <form class="col s12" action="included/login.inc.php" method="post">
             <div class="row">
               <div class="input-field col s12">
-                <input type="text" name="username" class="validate" id="uname" required>
+                <input type="text" name="username" class="validate" id="uname" value="tony" required>
                 <label for="uname">Username</label>
               </div>
             </div>
               <div class="input-field s12">
-                <input type="password" name="password" class="validate" id="pwd" required>
+                <input type="password" name="password" class="validate" id="pwd" required value="a">
                 <label for="pwd">Password</label>
               </div>
               <button type="submit" name="login_btn" class="btn" style="width:100%; margin-top:20px;">Login</button>
