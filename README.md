@@ -1,4 +1,4 @@
-# WJGarments
+# Online Shop
 This project has been created with HTML, CSS3, jQuery, PHP and MySQL.
 
 This project has been created and designed from scratch without using any pre-existing template online on the internet, I
