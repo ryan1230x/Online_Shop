@@ -15,4 +15,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
     # Call login Method
     $auth->login();
+} else if($_SERVER["REQUEST_METHOD"] === "GET") {
+
+    # instanciate database
+    $database = new Database();
+    $db = $database->connect();
+
+    # Instanciate Auth Obj
+    $auth = new Auth($db);
+
+    # Call login Method
+    $auth->logout();
 }

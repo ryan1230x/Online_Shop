@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,9 +23,13 @@
       <i class="material-icons">menu</i>
     </a>   
     <div class="d-flex justify-end ml-auto" id="nav-icons">
-      <a href="#loginModal" class="modal-trigger btn-flat btn-floating">
-        <i class="material-icons" style="display:flex;justify-content:center;position:relative;top:-12px;">person</i>
-      </a>      
+      <?php
+      if (isset($_SESSION["username"])) echo '<span>Hello, '.$_SESSION["username"].'</span>';      
+      ?>
+      <a href="#loginModal" class="modal-trigger" style="margin-left:10px;">
+        <i class="material-icons" 
+          style="display:flex;justify-content:center;">person</i>
+      </a>            
     </div>   
     <ul id="slide-out" class="side-nav fixed">
     <li>
@@ -95,6 +102,14 @@
         <i class="material-icons">whatshot</i>
       </a>
     </li>
+    <?php
+    if ($_SESSION["username"]) echo '
+    <li>
+      <a href="#" style="padding: 0 15px;" id="logout-btn">Logout
+        <i class="material-icons">logout</i>
+      </a>
+    </li>'
+    ?>
   </ul>
   </div>
   </nav>

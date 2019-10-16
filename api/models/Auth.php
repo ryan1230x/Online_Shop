@@ -42,9 +42,12 @@ class Auth {
             $this->username_check = $row["username"];
 
             if($this->username === $this->username_check && $this->password_check === TRUE) {
-                session_start();
-                echo json_encode(array('message' => 'user logged in'));
+                session_start();                
                 $_SESSION['username'] = $row["username"];                  
+                echo json_encode(array(
+                    'message' => 'user logged in',
+                    'username' => $_SESSION["username"],                    
+                ));
                 exit();
 
             } else {
@@ -56,5 +59,13 @@ class Auth {
             echo json_encode(array('message' => 'Please Use your Crediantals'));
             exit();
         }        
+    }
+
+    function logout() {
+        session_start();
+        session_unset();
+        session_destroy();
+        echo json_encode(array('message' => 'Logged Out'));
+        exit();
     }
 }

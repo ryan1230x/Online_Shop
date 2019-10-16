@@ -7,14 +7,14 @@
         </div>  
         <div id="err-div"></div>
         <div id="success-div"></div>      
-        <form action="#" id="login">
+        <form action="#" method="POST" id="login">
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text" name="uname" id="uname">
+                    <input type="text" name="uname" id="uname" value="Admin">
                     <label for="uname">Username</label>
                 </div>
                 <div class="input-field col s12">
-                    <input type="password" name="password" id="pass">
+                    <input type="password" name="password" id="pass" value="admin">
                     <label for="pass">Password</label>
                 </div>
                 <p class="text-grey underline" id="registerLink">

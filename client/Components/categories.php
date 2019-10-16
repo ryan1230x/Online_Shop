@@ -1,3 +1,4 @@
+<div id="logout-div"></div>
 <div class="card-panel"  id="outer-category">
     <h5 class="underline">Categories</h5>    
     <div id="category-section">    

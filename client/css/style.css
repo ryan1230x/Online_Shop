@@ -84,10 +84,9 @@ nav {
     color: #fff;
 }
 #nav-icons {
-    width:fit-content;
-    height: 64px;
+    width:fit-content;    
     align-items: center;
-    padding-right: 40px;
+    padding-right: 40px;    
 }
 .collapsible-body > ul {
     margin-left: 60px !important;
