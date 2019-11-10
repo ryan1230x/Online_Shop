@@ -40,6 +40,9 @@ echo '
       if(isset($_SESSION["username"])) 
       echo '
       <li>
+      <a href="../index.php"><i class="material-icons">arrow_back</i>Shop</a>
+      </li>
+      <li>
         <a href="included/signout.php"><i class="material-icons">logout</i>Logout</a>
       </li>';       
       echo '        

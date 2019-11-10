@@ -103,7 +103,13 @@ session_start();
       </a>
     </li>
     <?php
-    if ($_SESSION["username"]) echo '
+    if ($_SESSION["username"] === 'Admin') echo '
+    <li>
+      <a href="AdminPortal" style="padding: 0 15px" id="portalBtn">AdminPortal
+        <i class="material-icons">supervisor_account</i>
+      </a>
+    </li>';
+    if($_SESSION["username"]) echo'
     <li>
       <a href="#" style="padding: 0 15px;" id="logout-btn">Logout
         <i class="material-icons">logout</i>

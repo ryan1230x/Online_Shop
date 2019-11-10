@@ -137,12 +137,12 @@ $(document).ready(function(){
         })
         .done(function(data = JSON.parse(`{ "message": ${data.message} }'`)) {
             $(".button-collapse").sideNav('hide');
-            const elementsToHide = [$("#logout-btn"), $("#nav-icons span")];
+            const elementsToHide = [$("#logout-btn"), $("#nav-icons span"), $("#portalBtn")];
             elementsToHide.map(x => x.hide());
             
             $("#logout-div")
             .addClass("card-panel blue-grey").css({'margin': '20px','color':'#fff'})
-            .append(`<p>You Are Now ${data.message}.</p>`)            
+            .append(`<p>You Are Now ${data.message}.</p>`);            
             
             
                 

@@ -47,6 +47,6 @@ if(isset($_POST['login_btn'])) {
         }                
     }
 } else {
-    header("Loction: signin.php");
+    header("Location: signin.php");
     exit();
 }

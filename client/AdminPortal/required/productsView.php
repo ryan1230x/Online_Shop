@@ -9,7 +9,7 @@ echo'
     </div>
     <div class="d-flex col s12">
         <a class="btn secondary-btn hoverable ml-auto modal-trigger" href="#modal">Add Product
-            <i class="material-icons left">add</i>
+            <i class="material-icons right">add</i>
         </a>
     </div>
 </div>
@@ -65,27 +65,40 @@ echo'
 </div>
 
 <div id="modal" class="modal">
-    <div class="modal-content">
-        <h5>Please fill in all the fields</h5>
+    <div class="modal-content">        
         <div class="row">
-            <form>
+            <div id="msg"></div>
+            <form id="modal-form">
                 <div class="input-field col s12 m9">
-                    <input type="text" id="title" />
-                    <label for="title">Product Title</label>
+                    <input type="text" id="title" name="title" />
+                    <label for="title" >Product Title</label>
                 </div>
                 <div class="input-field col s12 m3">
-                    <input type="text" id="price" />
+                    <input type="text" id="price" class="validate" name="price" />
                     <label for="price">Price</label>
                 </div>
                 <div class="input-field col s12">
-                <textarea class="materialize-textarea" id="description"></textarea>
-                <label for="description">Product Description</label>
+                    <textarea class="materialize-textarea" id="description" name="about"></textarea>
+                    <label for="description">Product Description</label>
                 </div>
-            </form>
+                <!--<div class="file-field input-field col s12">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="file[]" id="file">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" placeholder="Select Photo" name="file[]" id="file">
+                    </div>
+                </div> -->
         </div>
     </div>
     <div class="modal-footer">
-        <a class="btn btn-flat modal-action modal-close">Agree</a>
-    </div>
+        <a class="btn btn-flat red white-text modal-action modal-close">close</a>
+        <button type="submit" class="btn btn-flat blue white-text" id="nextBtn">finish
+            <i class="material-icons right">done</i>
+        </button>
+        <div id="progress-bar"></div>
+        </form>
+    </div>    
 </div>';
 ?>
