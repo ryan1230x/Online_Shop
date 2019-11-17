@@ -12,6 +12,7 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/view.css">
   <title>Online Store | Home</title>
 </head>
 <body>
@@ -35,7 +36,9 @@ session_start();
     <li>
       <div class="user-view" style="height:200px;">
         <div class="background" style="height:200px;">
-          <img src="https://i.pinimg.com/originals/92/0b/3d/920b3d90f07d4f56b37e2d8768d73422.jpg" width="300" height="200">
+          <a href="index.php" style="padding:0">
+            <img src="https://i.pinimg.com/originals/92/0b/3d/920b3d90f07d4f56b37e2d8768d73422.jpg" width="300" height="200">
+          </a>
         </div>            
       </div>
     </li>

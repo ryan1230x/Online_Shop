@@ -5,7 +5,8 @@
         <div class="p-relative">
             <div>                                
                 <a href="#">
-                    <img src="img/shirts-small.jpg" alt="" class="responsive-img">
+                    <img                     
+                     src="img/shirts-small.jpg" alt="" class="responsive-img">
                 </a>                                                
                 <h5 class="cat-title">Shirts</h5>            
             </div>                         
@@ -29,7 +30,7 @@
         <div  class="p-relative">
             <div>
                 <a href="#">
-                    <img src="img/trousers-small.jpg" alt="" class="responsive-img">
+                    <img  src="img/trousers-small.jpg" alt="" class="responsive-img">
                 </a>
                 <h5 class="cat-title">Trousers</h5>
             </div>        
