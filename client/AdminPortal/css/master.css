@@ -7,7 +7,7 @@
     --secondary-color-dark: #c68400;
 }
 html, body {
-    font-family: 'Crimson Text', serif;    
+    font-family: 'Montserrat', sans-serif;    
     background: #f5f5f5;
 }
 header, main, footer, .page-footer {
@@ -32,6 +32,12 @@ header, main, footer, .page-footer {
     animation-duration: 2s;
     animation-fill-mode: forwards;
     opacity: 0;
+}
+.mb-2 {
+    margin-bottom: 2em;
+}
+.mt-2 {
+    margin-top: 2em;
 }
 .m-top {
     margin-top: 2rem;

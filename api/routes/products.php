@@ -14,6 +14,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
     $product = new Products($db);
 
     # Create a Product
-    $product->create();
+    $product->addWishlist();
     print_r($data);
 }

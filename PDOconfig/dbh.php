@@ -1,8 +1,8 @@
 <?php
-$username = "ryan123";
-$db_name = "wjgarments";
-$host = "127.0.0.1";
-$db_password = "ryan123";
+$username = "u122331496_ryan_shop";
+$db_name = "u122331496_online_shop";
+$host = "localhost";
+$db_password = "r.harp3r";
 $dsn = "mysql:host=$host;dbname=$db_name;charset=utf8mb4";
 
 // Connection to database

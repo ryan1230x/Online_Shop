@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION["username"])) header("Location: signin.php");
 require_once 'config/dbh.php';
-echo '
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,12 +13,11 @@ echo '
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <!-- Compiled and minified CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-<!-- Playfair Display -->
-<link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
-<link href="css/master.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link href="./dist/css/style.min.css" rel="stylesheet">
 <!-- Address Bar Color -->
 <meta name="theme-color" content="#4b636e"/>
-<title>WJGarments</title>
+<title>Online Shop | Administration Portal</title>
 </head>
 
 <body>
@@ -36,7 +35,8 @@ echo '
       </li>
       <li class="divider"></li>      
       <li class="m-top"><a href="index.php"><i class="material-icons">home</i>Home</a></li>
-      <li><a href="productsView.php"><i class="material-icons">edit</i>Products</a></li>';
+      <li><a href="product-view.php"><i class="material-icons">edit</i>Products</a></li>
+      <?php
       if(isset($_SESSION["username"])) 
       echo '
       <li>
@@ -44,10 +44,10 @@ echo '
       </li>
       <li>
         <a href="included/signout.php"><i class="material-icons">logout</i>Logout</a>
-      </li>';       
-      echo '        
+      </li>';
+      ?>                     
       <div class="sleeve"></div>
     </ul>
   </div>
-</nav>';
-?>
+</nav>
+<body>

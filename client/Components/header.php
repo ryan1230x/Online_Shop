@@ -11,8 +11,7 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/view.css">
+  <link rel="stylesheet" href="./dist/css/style.min.css">
   <title>Online Store | Home</title>
 </head>
 <body>
@@ -24,7 +23,7 @@ session_start();
       <i class="material-icons">menu</i>
     </a>   
     <div class="d-flex justify-end ml-auto" id="nav-icons">
-      <?php
+      <?php      
       if (isset($_SESSION["username"])) echo '<span>Hello, '.$_SESSION["username"].'</span>';      
       ?>
       <a href="#loginModal" class="modal-trigger" style="margin-left:10px;">
@@ -49,18 +48,22 @@ session_start();
       </div>
       </form>
     </li>
+	<li>
+		<a href="./index.php" style="padding:0 16px;">Home
+			<i class="material-icons">home</i>
+		</a>
+	</li>
     <li class="no-padding">
       <ul class="collapsible collapsible-accordian">
         <li>
-          <a class="collapsible-header">Option 1
+          <a class="collapsible-header">Men
             <i class="material-icons">arrow_drop_down</i>
           </a>
           <div class="collapsible-body">
             <ul>
-              <li><a href="#">Option 1</a></li>
-              <li><a href="#">Option 2</a></li>
-              <li><a href="#">Options 3</a></li>
-              <li><a href="#">Option 4</a></li>
+              <li><a href="category.php?category=Shirts&gender=men">Shirts</a></li>
+              <li><a href="category.php?category=Trousers&gender=men">Trousers</a></li>
+              <li><a href="category.php?category=Jacket&gender=men">Jackets</a></li>              
             </ul>
           </div>
         </li>
@@ -69,43 +72,27 @@ session_start();
     <li class="no-padding">
       <ul class="collapsible collapsible-accordian">
         <li>
-          <a class="collapsible-header">Option 2
+          <a class="collapsible-header">Women
             <i class="material-icons">arrow_drop_down</i>
           </a>
           <div class="collapsible-body">
             <ul>
-              <li><a href="#">Options 1</a></li>
-              <li><a href="#">Options 2</a></li>
-              <li><a href="#">Options 3</a></li>
-              <li><a href="#">Options 4</a></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </li>
-    <li class="no-padding">
-      <ul class="collapsible collapsible-accordian">
-        <li>
-          <a class="collapsible-header">Option 3
-            <i class="material-icons">arrow_drop_down</i>
-          </a>
-          <div class="collapsible-body">
-            <ul>
-              <li><a href="#">Option 1</a></li>
-              <li><a href="#">Option 2</a></li>
-              <li><a href="#">Option 3</a></li>
-              <li><a href="#">Option 4</a></li>
+              <li><a href="category.php?category=Shirts&gender=women">Shirts</a></li>
+              <li><a href="category.php?category=Trousers&gender=women">Trousers</a></li>
+              <li><a href="category.php?category=Jacket&gender=women">Jackets</a></li>              
             </ul>
           </div>
         </li>
       </ul>
     </li>
     <li>
-      <a href="#" style="padding: 0 15px;">Deal
-        <i class="material-icons">whatshot</i>
-      </a>
-    </li>
     <?php
+    if(isset($_SESSION["username"])) echo '
+    <li>
+	    <a id="wishlistBtn" href="wishlist.php" style="padding: 0 15px">WishList
+	  	  <i class="material-icons">favorite</i>
+      </a>
+    </li>';
     if ($_SESSION["username"] === 'Admin') echo '
     <li>
       <a href="AdminPortal" style="padding: 0 15px" id="portalBtn">AdminPortal
@@ -117,10 +104,8 @@ session_start();
       <a href="#" style="padding: 0 15px;" id="logout-btn">Logout
         <i class="material-icons">logout</i>
       </a>
-    </li>'
-    ?>
+    </li>';?>    
   </ul>
   </div>
   </nav>
-</header>
-  <!-- Header End -->
+</header>  

@@ -1,0 +1,150 @@
+.mb-2 {
+  margin-bottom: 2em;
+}
+
+.mt-2 {
+  margin-top: 2em;
+}
+
+.m-top {
+  margin-top: 2rem;
+}
+
+.padding {
+  padding: 20px;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  background: #f5f5f5;
+}
+
+header, main, footer, .page-footer {
+  padding-left: 300px;
+}
+
+.secondary-btn {
+  background-color: #ffb300;
+  color: #000;
+}
+
+.secondary-btn:hover, .secondary-btn:focus {
+  background-color: #ffe54c;
+}
+
+blockquote {
+  border-left-color: #ffb300;
+}
+
+.nav-wrapper {
+  background-color: #78909c;
+}
+
+.nav-wrapper .brand-logo {
+  width: 300px;
+}
+
+.nav-wrapper .sleeve {
+  position: relative;
+  bottom: -20%;
+  height: 100%;
+  background: rgba(255, 179, 0, 0.7);
+  -webkit-transform: rotate(35deg);
+          transform: rotate(35deg);
+}
+
+.nav-wrapper .side-nav {
+  overflow-y: hidden;
+}
+
+.nav-wrapper .side-nav li > a {
+  font-size: 1rem;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#firstSection {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  grid-area: firstSection;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+#secondSection {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
+  grid-area: secondSection;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.ui-actions a {
+  border-radius: 40px;
+}
+
+/* Keyframes */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+  #firstSection {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+    grid-gap: 0px !important;
+  }
+  #secondSection {
+    -ms-grid-columns: 1fr !important;
+        grid-template-columns: 1fr !important;
+    grid-gap: 0px !important;
+  }
+}
+/*# sourceMappingURL=style.min.css.map */
