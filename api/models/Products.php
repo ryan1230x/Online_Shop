@@ -31,6 +31,9 @@ class Products {
 		if($stmt->rowCount() < 0) {
 			echo json_encode(array("Message"=>"The username does not exist"));
 			exit();
+		} elseif(empty($this->user)) {
+			echo json_encode(array("Message"=>"Please sign in to add to wishlist"));
+			exit();
 		}
 		
 		//CHECK THE PRODUCT_ID EXISTS
